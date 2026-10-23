@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Cpu, Shield, Globe, Terminal, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { projects } from '../data/projects';
+import ScrambleText from '../components/ScrambleText';
 
 export default function HomePage({ onSelectProject }) {
   return (
@@ -15,8 +16,8 @@ export default function HomePage({ onSelectProject }) {
       <section className="relative w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[75vh]">
         {/* Technical Telemetry Overlay */}
         <div className="absolute top-0 left-5 sm:left-8 md:left-12 font-mono text-[11px] text-on-surface-variant/60 hidden md:block select-none">
-          SYS.VER // 9.0.4 <br />
-          UPLINK // STABLE & SECURED
+          SYS.VER // Just 1 <br />
+          Things // STABLE & SECURED
         </div>
 
         {/* Content Area (Asymmetrical Overlap) */}
@@ -46,7 +47,7 @@ export default function HomePage({ onSelectProject }) {
                 to="/start-project"
                 className="bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase px-8 py-4 rounded hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 group shadow-[0_0_25px_rgba(250,204,21,0.25)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
               >
-                <span>INITIATE SEQUENCE</span>
+                <ScrambleText text="INITIATE SEQUENCE" triggerOnParent scrambleColor="text-black/80 font-mono" />
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
 
@@ -59,7 +60,7 @@ export default function HomePage({ onSelectProject }) {
         </div>
 
         {/* Hero Visual Anchor */}
-        <div className="col-span-1 md:col-span-6 md:col-start-7 z-10 relative w-full h-[320px] sm:h-[450px] md:h-[550px] lg:h-[620px] rounded overflow-hidden border border-surface-stroke">
+        {/* <div className="col-span-1 md:col-span-6 md:col-start-7 z-10 relative w-full h-[320px] sm:h-[450px] md:h-[550px] lg:h-[620px] rounded overflow-hidden border border-surface-stroke">
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background z-10 pointer-events-none" />
           
@@ -70,10 +71,11 @@ export default function HomePage({ onSelectProject }) {
           />
 
           {/* Floating Telemetry Node Badge */}
-          <div className="absolute bottom-6 right-6 z-20 font-mono text-xs text-electric-gold border border-electric-gold/40 px-3 py-1.5 backdrop-blur-md bg-black/60 rounded">
+          {/* <div className="absolute bottom-6 right-6 z-20 font-mono text-xs text-electric-gold border border-electric-gold/40 px-3 py-1.5 backdrop-blur-md bg-black/60 rounded">
             NODE_ALPHA_7 // CONNECTED
           </div>
-        </div>
+        </div> */} 
+
       </section>
 
       {/* Trust & Credibility Metrics */}
@@ -82,7 +84,7 @@ export default function HomePage({ onSelectProject }) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-12">
             <div className="border-b sm:border-b-0 sm:border-r border-surface-stroke pb-6 sm:pb-0 sm:pr-6">
               <div className="font-sans font-black text-4xl sm:text-5xl text-pure-white mb-2 tracking-tight">
-                150+
+                10+
               </div>
               <div className="font-mono text-xs text-electric-gold uppercase tracking-wider">
                 Projects Launched & Deployed
@@ -90,7 +92,7 @@ export default function HomePage({ onSelectProject }) {
             </div>
             <div className="border-b sm:border-b-0 sm:border-r border-surface-stroke pb-6 sm:pb-0 sm:pr-6">
               <div className="font-sans font-black text-4xl sm:text-5xl text-pure-white mb-2 tracking-tight">
-                10+
+                01+
               </div>
               <div className="font-mono text-xs text-electric-gold uppercase tracking-wider">
                 Years Deep Engineering Experience
@@ -207,10 +209,10 @@ export default function HomePage({ onSelectProject }) {
           </div>
           <Link
             to="/work"
-            className="font-mono text-xs text-electric-gold hover:text-white flex items-center gap-1.5 transition-colors uppercase tracking-wider"
+            className="group font-mono text-xs text-electric-gold hover:text-white flex items-center gap-1.5 transition-colors uppercase tracking-wider"
           >
-            <span>View All Deployments</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ScrambleText text="View All Deployments" triggerOnParent scrambleColor="text-data-cyan" />
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
 
@@ -241,7 +243,7 @@ export default function HomePage({ onSelectProject }) {
                 </div>
 
                 <h3 className="font-sans font-bold text-2xl text-pure-white mb-2 group-hover:text-electric-gold transition-colors">
-                  {item.title}
+                  <ScrambleText text={item.title} triggerOnParent scrambleColor="text-electric-gold" />
                 </h3>
                 <p className="font-sans text-sm text-on-surface-variant line-clamp-2 leading-relaxed">
                   {item.description}
@@ -253,7 +255,7 @@ export default function HomePage({ onSelectProject }) {
                   {item.metrics[0].label}: <strong className="text-pure-white">{item.metrics[0].value}</strong>
                 </span>
                 <span className="font-sans text-xs font-bold text-electric-gold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  Examine Spec →
+                  <ScrambleText text={item.cta ? `${item.cta} →` : 'Explore Project →'} triggerOnParent scrambleColor="text-data-cyan" />
                 </span>
               </div>
             </div>
@@ -278,10 +280,10 @@ export default function HomePage({ onSelectProject }) {
           </div>
           <Link
             to="/audit"
-            className="bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase px-7 py-4 rounded hover:bg-white transition-all duration-300 flex items-center gap-2 whitespace-nowrap z-10"
+            className="group bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase px-7 py-4 rounded hover:bg-white transition-all duration-300 flex items-center gap-2 whitespace-nowrap z-10"
           >
-            <span>REQUEST AUDIT SCAN</span>
-            <ArrowRight className="w-4 h-4" />
+            <ScrambleText text="REQUEST AUDIT SCAN" triggerOnParent scrambleColor="text-black/80 font-mono" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </Link>
         </div>
       </section>

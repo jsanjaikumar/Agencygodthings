@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Compass, Sliders, DollarSign, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import ScrambleText from '../components/ScrambleText';
 
 export default function StartProjectPage() {
   const [activeSection, setActiveSection] = useState('intent'); // 'intent' | 'params' | 'budget'
@@ -371,7 +372,7 @@ export default function StartProjectPage() {
                         type="submit"
                         className="bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase px-8 py-4 rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(250,204,21,0.3)] flex items-center gap-2 group"
                       >
-                        <span>INITIALIZE SEQUENCE</span>
+                        <ScrambleText text="INITIALIZE SEQUENCE" triggerOnParent scrambleColor="text-black/80 font-mono" />
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>

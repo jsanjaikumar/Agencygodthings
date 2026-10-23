@@ -10,6 +10,8 @@ import ProjectModal from './components/ProjectModal';
 import HomePage from './pages/HomePage';
 import WorkPage from './pages/WorkPage';
 import ServicesPage from './pages/ServicesPage';
+import SolutionsPage from './pages/SolutionsPage';
+import MaintenancePage from './pages/MaintenancePage';
 import ProcessPage from './pages/ProcessPage';
 import AboutPage from './pages/AboutPage';
 import AuditPage from './pages/AuditPage';
@@ -68,6 +70,14 @@ export default function App() {
             element={<ServicesPage />} 
           />
           <Route 
+            path="/solutions" 
+            element={<SolutionsPage />} 
+          />
+          <Route 
+            path="/maintenance" 
+            element={<MaintenancePage />} 
+          />
+          <Route 
             path="/process" 
             element={<ProcessPage />} 
           />
@@ -81,6 +91,10 @@ export default function App() {
           />
           <Route 
             path="/start-project" 
+            element={<StartProjectPage />} 
+          />
+          <Route 
+            path="/contact" 
             element={<StartProjectPage />} 
           />
           <Route 

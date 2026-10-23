@@ -118,31 +118,65 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {operatives.map((op, idx) => (
-            <div
+        {/* 2-Column Responsive Talent Directory Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {operatives.map((op) => (
+            <article
               key={op.id}
-              className={`${op.colSpan} relative group`}
+              className="glass-panel border border-surface-stroke rounded-lg overflow-hidden flex flex-col group hover:border-surface-variant transition-all duration-300"
             >
-              <div className="relative overflow-hidden aspect-[4/5] bg-surface-container-lowest border border-surface-stroke rounded">
+              {/* 1. Talent profile image */}
+              <div
+                className="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest border-b border-surface-stroke"
+                style={{ aspectRatio: '16/10' }}
+              >
                 <img
                   src={op.image}
                   alt={op.name}
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                  className="w-full h-full object-cover object-center grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
-                <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-obsidian-deep via-obsidian-deep/80 to-transparent">
-                  <div className="font-mono text-[11px] text-electric-gold mb-1">
-                    {op.id} // {op.role}
-                  </div>
-                  <h3 className="font-sans font-bold text-xl sm:text-2xl text-pure-white mb-2">
-                    {op.name}
-                  </h3>
-                  <p className="font-sans text-xs text-on-surface-variant italic line-clamp-2">
-                    "{op.quote}"
-                  </p>
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="font-mono text-xs font-semibold text-electric-gold bg-black/80 backdrop-blur-md px-2.5 py-1 border border-electric-gold/30 rounded shadow-md tracking-wider">
+                    {op.id}
+                  </span>
                 </div>
               </div>
-            </div>
+
+              {/* Standardized Card Content */}
+              <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between bg-surface-container/20">
+                <div className="space-y-3">
+                  {/* 2. Talent name */}
+                  <h3 className="font-sans font-bold text-2xl sm:text-3xl text-pure-white group-hover:text-electric-gold transition-colors tracking-tight">
+                    {op.name}
+                  </h3>
+
+                  {/* 3. Professional role or job title */}
+                  <div className="font-mono text-xs text-electric-gold tracking-widest uppercase font-semibold">
+                    {op.role}
+                  </div>
+
+                  {/* 4. Short description or specialization */}
+                  {op.quote && (
+                    <p className="font-sans text-sm text-on-surface-variant leading-relaxed italic pt-1">
+                      "{op.quote}"
+                    </p>
+                  )}
+                </div>
+
+                {/* 5. Existing CTA or profile link, if present */}
+                {op.link && (
+                  <div className="pt-6 mt-6 border-t border-surface-stroke flex items-center justify-between">
+                    <Link
+                      to={op.link}
+                      className="font-mono text-xs text-electric-gold hover:underline flex items-center gap-1.5"
+                    >
+                      <span>VIEW SPEC</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </article>
           ))}
         </div>
       </section>

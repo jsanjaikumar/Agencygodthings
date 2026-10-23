@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, Shield, Smartphone, Globe, Activity, TrendingUp, Search, Layers } from 'lucide-react';
+import ScrambleText from '../components/ScrambleText';
 
 export default function AuditPage() {
   const [formData, setFormData] = useState({
@@ -182,10 +183,14 @@ export default function AuditPage() {
                     <button
                       type="submit"
                       disabled={scanState === 'scanning'}
-                      className="mt-4 w-full bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase py-4 px-6 rounded hover:bg-white transition-colors duration-300 flex justify-center items-center gap-2 group"
+                      className="mt-4 w-full bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase py-4 px-6 rounded hover:bg-white transition-colors duration-300 flex justify-center items-center gap-2 group shadow-[0_0_15px_rgba(250,204,21,0.25)]"
                     >
-                      <span>{scanState === 'scanning' ? 'Scanning...' : 'Initiate Scan'}</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ScrambleText
+                        text={scanState === 'scanning' ? 'SCANNING ENVIRONMENT...' : 'INITIATE SCAN'}
+                        triggerOnParent
+                        scrambleColor="text-black/80 font-mono"
+                      />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                     </button>
 
                     <p className="font-mono text-[10px] text-on-surface-variant text-center opacity-60">

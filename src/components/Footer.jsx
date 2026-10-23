@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal, Shield, Cpu, Activity, Globe } from 'lucide-react';
+import ScrambleText from './ScrambleText';
 
 export default function Footer({ onOpenTerminal }) {
   return (
@@ -8,7 +9,7 @@ export default function Footer({ onOpenTerminal }) {
       {/* Background ambient watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none opacity-5">
         <span className="font-sans font-black text-[12vw] tracking-tighter text-on-surface whitespace-nowrap">
-          AETHER_DIGITAL
+          JUSTTHINGS
         </span>
       </div>
 
@@ -17,9 +18,9 @@ export default function Footer({ onOpenTerminal }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-gutter mb-16">
           {/* Brand Col */}
           <div className="md:col-span-5">
-            <Link to="/" className="inline-block mb-4">
-              <span className="font-sans font-black text-2xl tracking-tighter text-pure-white hover:text-electric-gold transition-colors">
-                AETHER DIGITAL
+            <Link to="/" className="inline-block mb-4 group">
+              <span className="font-sans font-black text-2xl tracking-tighter text-pure-white group-hover:text-electric-gold transition-colors">
+                <ScrambleText text="JUSTTHINGS" triggerOnParent scrambleColor="text-electric-gold" />
               </span>
             </Link>
             <p className="font-sans text-sm text-on-surface-variant max-w-sm mb-6 leading-relaxed">
@@ -34,32 +35,37 @@ export default function Footer({ onOpenTerminal }) {
           {/* Nav / Protocols Col */}
           <div className="md:col-span-3 sm:col-span-6">
             <h4 className="font-mono text-xs text-electric-gold uppercase tracking-widest mb-4">
-              PROTOCOLS & CORE
+              SERVICES & SOLUTIONS
             </h4>
             <ul className="space-y-2.5 font-sans text-sm">
               <li>
-                <Link to="/work" className="text-on-surface-variant hover:text-electric-gold transition-colors">
-                  Selected Work
+                <Link to="/services" className="group text-on-surface-variant hover:text-electric-gold transition-colors inline-block">
+                  <ScrambleText text="Services Overview" triggerOnParent scrambleColor="text-data-cyan" />
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-on-surface-variant hover:text-electric-gold transition-colors">
-                  Engineered Solutions
+                <Link to="/solutions" className="group text-on-surface-variant hover:text-electric-gold transition-colors inline-block">
+                  <ScrambleText text="Purpose-Built Solutions" triggerOnParent scrambleColor="text-data-cyan" />
                 </Link>
               </li>
               <li>
-                <Link to="/process" className="text-on-surface-variant hover:text-electric-gold transition-colors">
-                  6-Stage Methodology
+                <Link to="/maintenance" className="group text-on-surface-variant hover:text-electric-gold transition-colors inline-block">
+                  <ScrambleText text="Maintenance & Support" triggerOnParent scrambleColor="text-data-cyan" />
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-on-surface-variant hover:text-electric-gold transition-colors">
-                  The Arsenal & Operatives
+                <Link to="/work" className="group text-on-surface-variant hover:text-electric-gold transition-colors inline-block">
+                  <ScrambleText text="Selected Work" triggerOnParent scrambleColor="text-data-cyan" />
                 </Link>
               </li>
               <li>
-                <Link to="/audit" className="text-on-surface-variant hover:text-electric-gold transition-colors">
-                  Free Website Audit
+                <Link to="/about" className="group text-on-surface-variant hover:text-electric-gold transition-colors inline-block">
+                  <ScrambleText text="About JustThings" triggerOnParent scrambleColor="text-data-cyan" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/audit" className="group text-on-surface-variant hover:text-electric-gold transition-colors inline-block">
+                  <ScrambleText text="Free Website Audit" triggerOnParent scrambleColor="text-data-cyan" />
                 </Link>
               </li>
             </ul>
@@ -75,10 +81,10 @@ export default function Footer({ onOpenTerminal }) {
             </p>
             <Link
               to="/start-project"
-              className="inline-flex items-center gap-2 font-mono text-xs text-black bg-electric-gold px-4 py-2.5 rounded font-bold hover:bg-white transition-colors uppercase tracking-wider"
+              className="group inline-flex items-center gap-2 font-mono text-xs text-black bg-electric-gold px-4 py-2.5 rounded font-bold hover:bg-white transition-colors uppercase tracking-wider shadow-[0_0_15px_rgba(250,204,21,0.25)]"
             >
-              <span>Engage Council</span>
-              <span>→</span>
+              <ScrambleText text="Engage Council" triggerOnParent scrambleColor="text-black/80 font-mono" />
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
         </div>
@@ -99,17 +105,20 @@ export default function Footer({ onOpenTerminal }) {
               <Terminal className="w-3.5 h-3.5 text-electric-gold group-hover:animate-pulse" />
               <span>TERMINAL</span>
             </button>
+            <Link to="/services" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
+              SERVICES
+            </Link>
+            <Link to="/solutions" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
+              SOLUTIONS
+            </Link>
+            <Link to="/maintenance" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
+              MAINTENANCE
+            </Link>
             <Link to="/audit" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
               AUDIT_ENGINE
             </Link>
-            <Link to="/services" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
-              ENCRYPTION
-            </Link>
-            <Link to="/process" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
-              DATA_PRIVACY
-            </Link>
             <Link to="/about" className="font-mono text-xs text-on-surface-variant hover:text-electric-gold transition-colors">
-              MANIFESTO
+              ABOUT
             </Link>
           </div>
         </div>

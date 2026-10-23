@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Terminal, Menu, X, ArrowUpRight, ShieldCheck, Sparkles } from 'lucide-react';
+import ScrambleText from './ScrambleText';
 
 export default function Navbar({ onOpenTerminal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,10 +21,11 @@ export default function Navbar({ onOpenTerminal }) {
   }, []);
 
   const navItems = [
-    { label: 'WORK', to: '/work' },
     { label: 'SERVICES', to: '/services' },
-    { label: 'PROCESS', to: '/process' },
+    { label: 'SOLUTIONS', to: '/solutions' },
+    { label: 'MAINTENANCE', to: '/maintenance' },
     { label: 'ABOUT', to: '/about' },
+    { label: 'WORK', to: '/work' },
     { label: 'AUDIT', to: '/audit' },
   ];
 
@@ -42,15 +44,12 @@ export default function Navbar({ onOpenTerminal }) {
             to="/" 
             className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded border border-electric-gold/60 bg-surface-container flex items-center justify-center text-electric-gold font-mono text-sm font-bold shadow-[0_0_12px_rgba(250,204,21,0.2)] group-hover:border-electric-gold transition-all duration-300">
-              Æ
+            <div className="w-8 h-8 rounded border border-electric-gold/60 bg-surface-container flex items-center justify-center text-electric-gold font-mono text-xs font-bold tracking-wider shadow-[0_0_12px_rgba(250,204,21,0.2)] group-hover:border-electric-gold group-hover:shadow-[0_0_16px_rgba(250,204,21,0.35)] transition-all duration-300">
+              JT
             </div>
             <div className="flex flex-col">
               <span className="font-sans font-extrabold tracking-tighter text-base sm:text-lg text-pure-white group-hover:text-electric-gold transition-colors duration-300 flex items-center gap-2">
-                Aether Digital
-                <span className="hidden sm:inline-block text-[9px] font-mono font-medium text-electric-gold/80 border border-electric-gold/30 px-1.5 py-0.5 rounded tracking-normal">
-                  OS.9
-                </span>
+                <ScrambleText text="JustThings" triggerOnParent scrambleColor="text-electric-gold" />
               </span>
             </div>
           </Link>
@@ -71,7 +70,7 @@ export default function Navbar({ onOpenTerminal }) {
               >
                 {({ isActive }) => (
                   <>
-                    {item.label}
+                    <ScrambleText text={item.label} triggerOnParent scrambleColor="" />
                     <span 
                       className={`absolute bottom-0 left-0 h-[2px] bg-electric-gold transition-all duration-300 ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
@@ -88,18 +87,20 @@ export default function Navbar({ onOpenTerminal }) {
             <button
               onClick={onOpenTerminal}
               title="Open System Terminal"
-              className="text-on-surface-variant hover:text-electric-gold p-2 rounded border border-surface-stroke hover:border-electric-gold/50 hover:bg-surface-elevated transition-all flex items-center gap-1.5 text-xs font-mono"
+              className="group text-on-surface-variant hover:text-electric-gold p-2 rounded border border-surface-stroke hover:border-electric-gold/50 hover:bg-surface-elevated transition-all flex items-center gap-1.5 text-xs font-mono"
             >
-              <Terminal className="w-4 h-4 text-electric-gold" />
-              <span className="hidden xl:inline text-[11px] text-on-surface-variant">CLI</span>
+              <Terminal className="w-4 h-4 text-electric-gold group-hover:rotate-6 transition-transform" />
+              <span className="hidden xl:inline text-[11px] text-on-surface-variant group-hover:text-electric-gold">
+                <ScrambleText text="CLI" triggerOnParent scrambleColor="text-electric-gold" />
+              </span>
             </button>
 
             <Link
               to="/start-project"
-              className="bg-electric-gold text-black font-sans text-[11px] font-extrabold tracking-[0.15em] px-5 py-2.5 rounded hover:bg-white transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(250,204,21,0.25)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+              className="group bg-electric-gold text-black font-sans text-[11px] font-extrabold tracking-[0.15em] px-5 py-2.5 rounded hover:bg-white transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(250,204,21,0.25)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
             >
-              <span>INQUIRE</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ScrambleText text="START A PROJECT" triggerOnParent scrambleColor="text-black/80 font-mono" />
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
 
@@ -152,13 +153,15 @@ export default function Navbar({ onOpenTerminal }) {
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `font-sans text-lg font-bold tracking-wider py-2 flex items-center justify-between border-b border-surface-stroke/40 ${
+                  `group font-sans text-lg font-bold tracking-wider py-2 flex items-center justify-between border-b border-surface-stroke/40 ${
                     isActive ? 'text-electric-gold pl-2' : 'text-on-surface hover:text-electric-gold hover:pl-2'
                   } transition-all duration-200`
                 }
               >
-                <span>{item.label}</span>
-                <span className="text-xs font-mono text-electric-gold opacity-50">→</span>
+                <span>
+                  <ScrambleText text={item.label} triggerOnParent scrambleColor="" />
+                </span>
+                <span className="text-xs font-mono text-electric-gold opacity-50 group-hover:translate-x-1 transition-transform">→</span>
               </NavLink>
             ))}
           </div>
@@ -166,10 +169,10 @@ export default function Navbar({ onOpenTerminal }) {
           <div className="pt-6 border-t border-surface-stroke space-y-4">
             <Link
               to="/start-project"
-              className="w-full bg-electric-gold text-black font-sans text-xs font-extrabold tracking-widest py-3.5 rounded text-center flex items-center justify-center gap-2"
+              className="group w-full bg-electric-gold text-black font-sans text-xs font-extrabold tracking-widest py-3.5 rounded text-center flex items-center justify-center gap-2"
             >
-              <span>INITIALIZE SEQUENCE</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ScrambleText text="INITIALIZE SEQUENCE" triggerOnParent scrambleColor="text-black/80 font-mono" />
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
 
             <button
@@ -177,10 +180,12 @@ export default function Navbar({ onOpenTerminal }) {
                 setMobileMenuOpen(false);
                 onOpenTerminal();
               }}
-              className="w-full bg-transparent border border-surface-stroke text-on-surface-variant hover:text-electric-gold hover:border-electric-gold font-mono text-xs py-3 rounded flex items-center justify-center gap-2 transition-colors"
+              className="group w-full bg-transparent border border-surface-stroke text-on-surface-variant hover:text-electric-gold hover:border-electric-gold font-mono text-xs py-3 rounded flex items-center justify-center gap-2 transition-colors"
             >
-              <Terminal className="w-4 h-4 text-electric-gold" />
-              <span>LAUNCH TERMINAL CLI</span>
+              <Terminal className="w-4 h-4 text-electric-gold group-hover:rotate-6 transition-transform" />
+              <span>
+                <ScrambleText text="LAUNCH TERMINAL CLI" triggerOnParent scrambleColor="text-electric-gold" />
+              </span>
             </button>
 
             <div className="text-center font-mono text-[10px] text-on-surface-variant/60 pt-2">

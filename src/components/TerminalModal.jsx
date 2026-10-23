@@ -65,10 +65,12 @@ export default function TerminalModal({ isOpen, onClose }) {
         newHistory.push({
           type: 'response',
           text: `ARCHIVED DEPLOYMENTS:
-  [01] Nexus Global Banking   (Fintech / Core Systems - $4.8B Daily Vol)
-  [02] Aero EV OS             (Automotive / Embedded OS - 120 FPS Telemetry)
-  [03] Project Chronos        (Autonomous AI Logistics - 24,000+ Nodes)
-  [04] Aegis Cryptographic    (Institutional Cold Vault - $12B+ Assets)
+  [01] Stockwise               (Business Software / SaaS - Inventory Platform)
+  [02] Clientflow              (SaaS / CRM - Lightweight Pipeline)
+  [03] Mindbase AI             (AI / Knowledge - RAG Vector Assistant)
+  [04] DevDudes                (Dev Community - Real-Time Network)
+  [05] CineScout               (Movie Discovery - Live Web Application)
+  [06] Local Business Platform (Digital Solutions - High Conversion Web)
   
   Navigating to /work...`
         });
