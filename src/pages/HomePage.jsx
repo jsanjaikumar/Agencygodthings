@@ -16,7 +16,7 @@ export default function HomePage({ onSelectProject }) {
       <section className="relative w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[75vh]">
         {/* Technical Telemetry Overlay */}
         <div className="absolute top-0 left-5 sm:left-8 md:left-12 font-mono text-[11px] text-on-surface-variant/60 hidden md:block select-none">
-          SYS.VER // Just 1 <br />
+          SYS.VER // Just 01 <br />
           Things // STABLE & SECURED
         </div>
 
@@ -84,7 +84,7 @@ export default function HomePage({ onSelectProject }) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-12">
             <div className="border-b sm:border-b-0 sm:border-r border-surface-stroke pb-6 sm:pb-0 sm:pr-6">
               <div className="font-sans font-black text-4xl sm:text-5xl text-pure-white mb-2 tracking-tight">
-                10+
+                05+
               </div>
               <div className="font-mono text-xs text-electric-gold uppercase tracking-wider">
                 Projects Launched & Deployed
@@ -110,7 +110,7 @@ export default function HomePage({ onSelectProject }) {
 
           {/* Discreet Client Strip */}
           <div className="border-t border-surface-stroke pt-8 flex flex-wrap justify-between items-center gap-6 opacity-40 font-mono text-sm tracking-widest">
-            <span className="hover:opacity-100 hover:text-electric-gold transition-all">ACME CORP</span>
+            <span className="hover:opacity-100 hover:text-electric-gold transition-all">LYVAN</span>
             <span className="hover:opacity-100 hover:text-electric-gold transition-all italic">GLOBEX SYSTEMS</span>
             <span className="hover:opacity-100 hover:text-electric-gold transition-all font-bold">SOYUZ DYNAMICS</span>
             <span className="hover:opacity-100 hover:text-electric-gold transition-all">INITECH LABS</span>

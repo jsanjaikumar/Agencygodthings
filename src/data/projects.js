@@ -1,3 +1,10 @@
+import stockImg from './stock.png';
+import clientImg from './client.png';
+import aiImg from './ai.png';
+import devdudesImg from './Devdudes.png';
+import cinescoutImg from './Cinescout.png';
+import businessImg from './business.png';
+
 export const projects = [
   {
     id: "stockwise",
@@ -23,8 +30,7 @@ export const projects = [
       { label: "Architecture", value: "Full-Stack" }
     ],
     stack: ["React", "Tailwind CSS", "Node.js", "Express.js", "MySQL"],
-    // Existing image reference preserved; developer can manually replace
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuADuh4eG7JpWb9UODbXzGxNOaRghvfaM9OTrvRzBXmMuLS0UtAfsZ2LVnhw8QvK8zKAVCJqvlHgRyDUz0YZT_sTPttsSrJ2A_BemD8qKVGn2gaQIi7-B9W63c-sQxG2XpuWlPSoSMZ7VkymfxoHvZF2JH968eLuv3e5nqAUHUuElQKzvU-Qrwd6lRXfQQZ-GMIPywcKGxJ7LZmypMqYRF3fpTaM7P4-5CslaymQhPjaEQt4pC2Qn3shcQ",
+    image: stockImg,
     color: "#facc15",
     accent: "electric-gold",
     cta: "Explore Project",
@@ -55,8 +61,7 @@ export const projects = [
       { label: "Storage Engine", value: "PostgreSQL" }
     ],
     stack: ["React", "Tailwind CSS", "Node.js", "Express.js", "PostgreSQL"],
-    // Existing image reference preserved; developer can manually replace
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDqpGtOUIeD68wsqbSAioVRITYE4mrXmGgH2tCuvMzZaCbnOi4eUQUtCIby02W_u3cMDNnQm1X6hY6O23FaI69Dyyjwckk_QOEiZIuJ0P464iR3J_7vsk_h6iXAU-AJEtvGPer09N8MULcsWuE-qqc9xNJk8ArVwZCdGYoiZ0LRgtPUNIx-Se3iNqqEInU_IgXF-xfQqKTvfhA4bMav9Jg0b2bBRQk0ZPR-qzqJOFCtDh3BNFIKYCXVFg",
+    image: clientImg,
     color: "#33e4ff",
     accent: "data-cyan",
     cta: "Explore Project",
@@ -87,8 +92,7 @@ export const projects = [
       { label: "Pipeline", value: "RAG + Vector DB" }
     ],
     stack: ["React", "Tailwind CSS", "Node.js", "LLM API", "RAG", "Vector Database"],
-    // Existing image reference preserved; developer can manually replace
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXik8Rrc3_gstzXh1y_C3xRkDSrCl4abhmguEeldXjiRjQWuG2Ff2AsPZnkie9f1UpFr6zGoDEBS1OBu7GbujJSPzhScu5r3Qs_9RSOALFpra8Q2_0HHGeaKdNURyRzlBcXXD-mJ-iLCNnga_K2JC2HzVq7x-lm429vqYcwST_s9kwsNi6b9SYa-t1TsLeXZ-JNHG05aCU0kfs84WKnEen5gRcxtI4Psd2X8jYIPEk_m_WwNRPiSb4UA",
+    image: aiImg,
     color: "#facc15",
     accent: "electric-gold",
     cta: "Explore Project",
@@ -119,8 +123,7 @@ export const projects = [
       { label: "Authentication", value: "JWT + Bcrypt" }
     ],
     stack: ["React", "Node.js", "Socket.IO", "JWT", "MongoDB"],
-    // Existing image reference preserved; developer can manually replace
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBl3LE_XsXYCz8dTi0HthquRJxV3QxF8ERm7SuP-E63NILCTVbJBYUs1kG2iG7iHgY5S79Nw607akcltIacAe5ncVMxDFxKEolwoDHCmuoFlhCkxFWRFlg--nxPmoJ5DIhGa7PUr3BaGEMCk2kMCOGw-H5_4j4tjU-Rsb_IwyzMFWcN1Bq8_THL_3cg0VTqcFv814rKQcT8_mGTJIWiLgTA034tddDUsBRfuoQAHLJPf5-9LU8q34qWdw",
+    image: devdudesImg,
     color: "#ffecb9",
     accent: "primary",
     cta: "Explore Project",
@@ -151,8 +154,7 @@ export const projects = [
       { label: "Deployment", value: "Vercel Live" }
     ],
     stack: ["React", "Tailwind CSS", "Appwrite", "OMDb API", "TanStack Query"],
-    // Existing image reference preserved; developer can manually replace
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCo7wh3ixf3OT3sUx2rB7estpVUUmyPL1ByCg8Rp5Xh3CldubORsrpjt0cN0KzsRXgGxQ2KGRv6fc6b4eK4v5oZ__fR7kn3zk8w1sBzFM3fa_HiF9jDBd5tuj8e1bc5JMCj4NVfzZOULrgAkRveEQrTkYIO87iQpLXcBgU8JImDLpkuyg8yics7BW695pw60hvHGhffIhmigJhcUeyQGevCdLjDGUIABNOgv8H3aZFaLdjUXKoof2KZRQ",
+    image: cinescoutImg,
     color: "#facc15",
     accent: "electric-gold",
     cta: "View Live Project",
@@ -184,8 +186,7 @@ export const projects = [
       { label: "Performance", value: "99+ Lighthouse" }
     ],
     stack: ["React", "Tailwind CSS", "JavaScript", "API Integrations"],
-    // Existing image reference preserved; developer can manually replace
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCULLHeSXa4uwM0oiuNNegiTChrH3beDvY3aerTMP72GIfAcPhP-_vry4vHlV0ABBnV9kchnM4y3Fi8C93jBKfws84ymcV8g8iab-vPO5elnTY1gblZzpQbzySRQozg7X1PwMvdB2JLnn35PpRzKSNLdnoseUM8PhBPG7LvbxGC75IIiND2Vexdp3p1N1J2GeViNfnckBn-qoOfA6oVD6rfjgKcIf1nicVtEvQgygoKHYtV1H5CgrfEwQ",
+    image: businessImg,
     color: "#33e4ff",
     accent: "data-cyan",
     cta: "Explore Project",

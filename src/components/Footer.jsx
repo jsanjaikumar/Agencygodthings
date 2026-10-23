@@ -92,9 +92,9 @@ export default function Footer({ onOpenTerminal }) {
         {/* Divider with technical telemetry */}
         <div className="border-t border-surface-stroke pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="font-mono text-xs text-electric-gold/80 flex items-center gap-2">
-            <span>©2024 AETHER_DIGITAL // SYSTEM_READY</span>
+            <span>©2026 JUSTTHINGS // SYSTEM_READY</span>
             <span className="hidden sm:inline text-surface-stroke">•</span>
-            <span className="hidden sm:inline text-on-surface-variant text-[11px]">BUILD 9.0.4</span>
+            <span className="hidden sm:inline text-on-surface-variant text-[11px]">BUILD 0.0.1</span>
           </div>
 
           <div className="flex flex-wrap gap-5 sm:gap-8 justify-center items-center">
