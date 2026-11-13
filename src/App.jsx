@@ -7,6 +7,8 @@ import CustomCursor from './components/CustomCursor';
 import TerminalModal from './components/TerminalModal';
 import ProjectModal from './components/ProjectModal';
 
+import { Analytics } from "@vercel/analytics/react"
+
 import HomePage from './pages/HomePage';
 import WorkPage from './pages/WorkPage';
 import ServicesPage from './pages/ServicesPage';
@@ -110,6 +112,8 @@ export default function App() {
 
       {/* Shared Responsive Footer */}
       <Footer onOpenTerminal={() => setTerminalOpen(true)} />
+      <Analytics />
+
     </div>
   );
 }
