@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Sliders, DollarSign, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { Compass, Sliders, DollarSign, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Loader2, AlertCircle } from 'lucide-react';
 import ScrambleText from '../components/ScrambleText';
 
 export default function StartProjectPage() {
@@ -16,10 +16,38 @@ export default function StartProjectPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          data.message || 'Failed to dispatch project dossier. Please check your connection or contact administrator.'
+        );
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setErrorMessage('Network error encountered while transmitting dossier. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -326,8 +354,8 @@ export default function StartProjectPage() {
                         <label className="block font-mono text-xs text-on-surface-variant mb-3">
                           CAPITAL ALLOCATION RANGE
                         </label>
-                        <div className="grid grid-cols-3 gap-3">
-                          {['50K - 100K', '100K - 250K', '250K+'].map((tier) => (
+                        <div className="grid grid-colsA-3 gap-3">
+                          {['20K - 100K', '100K - 250K', '250K+'].map((tier) => (
                             <button
                               key={tier}
                               type="button"
@@ -359,21 +387,39 @@ export default function StartProjectPage() {
                       </div>
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-3.5 bg-red-950/40 border border-red-500/40 rounded flex items-center gap-3 text-red-300 font-mono text-xs animate-in fade-in">
+                        <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
+
                     <div className="flex justify-between items-center pt-6 border-t border-surface-stroke">
                       <button
                         type="button"
                         onClick={() => setActiveSection('params')}
-                        className="font-mono text-xs text-on-surface-variant hover:text-white"
+                        disabled={isSubmitting}
+                        className="font-mono text-xs text-on-surface-variant hover:text-white disabled:opacity-50"
                       >
                         ← Back to Parameters
                       </button>
 
                       <button
                         type="submit"
-                        className="bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase px-8 py-4 rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(250,204,21,0.3)] flex items-center gap-2 group"
+                        disabled={isSubmitting}
+                        className="bg-electric-gold text-black font-sans text-xs font-black tracking-widest uppercase px-8 py-4 rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(250,204,21,0.3)] flex items-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        <ScrambleText text="INITIALIZE SEQUENCE" triggerOnParent scrambleColor="text-black/80 font-mono" />
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin text-black" />
+                            <span>TRANSMITTING DOSSIER...</span>
+                          </>
+                        ) : (
+                          <>
+                            <ScrambleText text="INITIALIZE SEQUENCE" triggerOnParent scrambleColor="text-black/80 font-mono" />
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
                       </button>
                     </div>
                   </div>

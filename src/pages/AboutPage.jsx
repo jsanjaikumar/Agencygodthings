@@ -107,7 +107,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Operatives (Team Grid) */}
+      {/* The Operatives (Team Grid) - Hidden for now
       <section className="px-5 sm:px-8 md:px-12 py-16 sm:py-24 max-w-[1440px] mx-auto border-t border-surface-stroke">
         <div className="mb-12 sm:mb-20">
           <span className="font-mono text-xs text-electric-gold mb-4 tracking-widest uppercase block">
@@ -118,14 +118,14 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        {/* 2-Column Responsive Talent Directory Grid */}
+        // 2-Column Responsive Talent Directory Grid
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {operatives.map((op) => (
             <article
               key={op.id}
               className="glass-panel border border-surface-stroke rounded-lg overflow-hidden flex flex-col group hover:border-surface-variant transition-all duration-300"
             >
-              {/* 1. Talent profile image */}
+              Talent profile image
               <div
                 className="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest border-b border-surface-stroke"
                 style={{ aspectRatio: '16/10' }}
@@ -142,20 +142,20 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Standardized Card Content */}
+              Standardized Card Content
               <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between bg-surface-container/20">
                 <div className="space-y-3">
-                  {/* 2. Talent name */}
+                  Talent name
                   <h3 className="font-sans font-bold text-2xl sm:text-3xl text-pure-white group-hover:text-electric-gold transition-colors tracking-tight">
                     {op.name}
                   </h3>
 
-                  {/* 3. Professional role or job title */}
+                  Professional role or job title
                   <div className="font-mono text-xs text-electric-gold tracking-widest uppercase font-semibold">
                     {op.role}
                   </div>
 
-                  {/* 4. Short description or specialization */}
+                  Short description or specialization
                   {op.quote && (
                     <p className="font-sans text-sm text-on-surface-variant leading-relaxed italic pt-1">
                       "{op.quote}"
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   )}
                 </div>
 
-                {/* 5. Existing CTA or profile link, if present */}
+                Existing CTA or profile link, if present
                 {op.link && (
                   <div className="pt-6 mt-6 border-t border-surface-stroke flex items-center justify-between">
                     <Link
@@ -180,6 +180,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      */} 
     </div>
   );
 }

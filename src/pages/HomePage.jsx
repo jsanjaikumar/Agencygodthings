@@ -84,7 +84,7 @@ export default function HomePage({ onSelectProject }) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-12">
             <div className="border-b sm:border-b-0 sm:border-r border-surface-stroke pb-6 sm:pb-0 sm:pr-6">
               <div className="font-sans font-black text-4xl sm:text-5xl text-pure-white mb-2 tracking-tight">
-                05+
+                01+
               </div>
               <div className="font-mono text-xs text-electric-gold uppercase tracking-wider">
                 Projects Launched & Deployed
@@ -108,13 +108,41 @@ export default function HomePage({ onSelectProject }) {
             </div>
           </div>
 
-          {/* Discreet Client Strip */}
-          <div className="border-t border-surface-stroke pt-8 flex flex-wrap justify-between items-center gap-6 opacity-40 font-mono text-sm tracking-widest">
-            <span className="hover:opacity-100 hover:text-electric-gold transition-all">LYVAN</span>
-            <span className="hover:opacity-100 hover:text-electric-gold transition-all italic">GLOBEX SYSTEMS</span>
-            <span className="hover:opacity-100 hover:text-electric-gold transition-all font-bold">SOYUZ DYNAMICS</span>
-            <span className="hover:opacity-100 hover:text-electric-gold transition-all">INITECH LABS</span>
-            <span className="hover:opacity-100 hover:text-electric-gold transition-all uppercase">UMBRELLA BIOTECH</span>
+          {/* Authentic Client & Trust Bar */}
+          <div className="border-t border-surface-stroke pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            {/* Real Client Showcase */}
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+              <span className="text-on-surface-variant uppercase tracking-widest text-[11px]">
+                ACTIVE PARTNERSHIP //
+              </span>
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded border border-electric-gold/40 bg-surface-container/60 text-pure-white font-bold tracking-wider hover:border-electric-gold transition-colors group">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                <span className="text-sm tracking-widest text-pure-white group-hover:text-electric-gold transition-colors font-sans font-bold">
+                  LYVAN
+                </span>
+                <span className="text-[10px] text-electric-gold font-normal px-2 py-0.5 rounded bg-electric-gold/10 border border-electric-gold/20">
+                  LIVE IN PRODUCTION
+                </span>
+              </div>
+            </div>
+
+            {/* Founding Client Intake & Trust Signal */}
+            <div className="flex flex-wrap items-center gap-4 font-mono text-xs">
+              <div className="flex items-center gap-2 text-on-surface-variant">
+                <span className="w-1.5 h-1.5 rounded-full bg-electric-gold" />
+                <span className="text-on-surface-variant text-[11px] tracking-wider uppercase">
+                  FOUNDING CLIENT INTAKE:
+                </span>
+                <span className="text-pure-white font-bold">LIMITED SLOTS OPEN</span>
+              </div>
+              <Link
+                to="/start-project"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-gold hover:text-white border border-electric-gold/40 hover:border-white px-3.5 py-1.5 rounded bg-electric-gold/5 hover:bg-electric-gold/20 transition-all group tracking-wider uppercase"
+              >
+                <span>Be Our Next Client</span>
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -73,66 +73,72 @@ export default function MaintenancePage() {
     {
       id: 'essential',
       name: 'Essential Care',
-      price: '₹2,499',
+      price: '₹0X,X04',
       period: '/month',
       isRecommended: false,
       badge: null,
-      description: 'For small business websites that need basic upkeep and occasional minor changes.',
-      hours: 'Up to 1 hour of maintenance work per month',
+      description: 'For small business websites that need routine upkeep and peace-of-mind technical support.',
+      highlightIcon: ShieldCheck,
+      highlightTag: 'CORE COMMITMENT',
+      turnaround: '48H TURNAROUND',
+      highlightText: 'Proactive health checks, link monitoring & monthly content upkeep',
       features: [
-        'Up to 1 hour of maintenance work per month',
-        'Basic website health checks',
-        'Contact-form and key-link checks',
-        'Minor content updates within the time allowance',
-        'Basic uptime check',
-        'Technical support during agreed business hours',
-        'Monthly summary of completed work when agreed'
+        'Routine website health & security checks',
+        'Contact-form and key-link functionality checks',
+        'Minor content and image updates',
+        'Basic uptime monitoring & DNS connectivity checks',
+        'Standard technical support during business hours',
+        'Monthly summary report of completed tasks'
       ],
-      bestFor: 'Portfolio websites, small business websites, and simple landing pages.',
+      bestFor: 'Portfolio websites, small business sites, and simple landing pages.',
       ctaText: 'Choose Essential Care',
       ctaLink: '/start-project?plan=essential'
     },
     {
       id: 'growth',
       name: 'Growth Care',
-      price: '₹5,999',
+      price: '₹0X,X17',
       period: '/month',
       isRecommended: true,
       badge: 'RECOMMENDED',
-      description: 'For active business websites that need regular updates, basic technical checks, and a little room for ongoing improvements.',
-      hours: 'Up to 3 total hours of maintenance work per month',
+      description: 'For active business websites that require regular updates, optimizations, and priority support.',
+      highlightIcon: Sparkles,
+      highlightTag: 'PRIORITY UPKEEP',
+      turnaround: '24H TURNAROUND',
+      highlightText: 'Routine platform updates, verified backups & speed monitoring',
       features: [
-        'Up to 3 total hours of maintenance work per month',
-        'Everything in Essential Care',
-        'Routine platform and dependency updates where supported',
-        'Backup verification where backups are configured',
-        'Basic performance and error checks',
-        'Minor website improvements within the time allowance',
-        'Priority in the agreed support queue'
+        'Everything included in Essential Care',
+        'Routine platform, CMS & dependency updates',
+        'Automated database and site backup verification',
+        'Basic performance, speed & error checks',
+        'Ongoing minor website layout & content improvements',
+        'Priority support in the agreed queue'
       ],
-      bestFor: 'Growing businesses, lead-generation websites, and frequently updated websites.',
+      bestFor: 'Growing businesses, lead-generation sites, and active brands.',
       ctaText: 'Choose Growth Care',
       ctaLink: '/start-project?plan=growth'
     },
     {
       id: 'application',
       name: 'Application Care',
-      price: '₹12,999',
+      price: '₹XX,X19',
       period: '/month',
       isRecommended: false,
       badge: 'ENTERPRISE APPS',
-      description: 'For custom web applications and business systems that need regular technical oversight and development support.',
-      hours: 'Up to 5 total hours of maintenance work per month',
+      description: 'For custom web apps and systems requiring continuous technical oversight and engineering assistance.',
+      highlightIcon: Activity,
+      highlightTag: 'DEDICATED OVERSIGHT',
+      turnaround: 'SAME-DAY ESCALATION',
+      highlightText: 'Custom app oversight, API health monitoring & bug triage',
       features: [
-        'Up to 5 total hours of maintenance work per month',
-        'Application and API health checks',
-        'Backup verification where supported',
-        'Routine dependency and security-related updates',
-        'Bug triage and eligible minor fixes',
-        'Deployment assistance',
-        'Monthly maintenance status report'
+        'Custom web application and API health checks',
+        'Database backup verification & recovery checks',
+        'Routine dependency, security & environment updates',
+        'Bug triage, diagnosis & eligible minor code fixes',
+        'Staging and production deployment assistance',
+        'Monthly technical maintenance & architecture report'
       ],
-      bestFor: 'Custom dashboards, internal tools, customer portals, and database-driven applications.',
+      bestFor: 'Custom dashboards, internal tools, customer portals, and SaaS apps.',
       ctaText: 'Choose Application Care',
       ctaLink: '/start-project?plan=application'
     }
@@ -349,12 +355,13 @@ export default function MaintenancePage() {
         {/* 3 Pricing Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-10">
           {plans.map((plan) => {
+            const IconComp = plan.highlightIcon;
             return (
               <div
                 key={plan.id}
-                className={`rounded-xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 relative ${
+                className={`rounded-xl p-8 sm:p-10 flex flex-col transition-all duration-300 relative ${
                   plan.isRecommended
-                    ? 'glass-panel border-2 border-electric-gold bg-surface-container/70 shadow-[0_0_40px_rgba(250,204,21,0.2)] lg:-translate-y-2'
+                    ? 'glass-panel border-2 border-electric-gold bg-surface-container/70 shadow-[0_0_40px_rgba(250,204,21,0.2)]'
                     : 'glass-panel border border-surface-stroke bg-surface-container-lowest/70 hover:border-surface-stroke/80'
                 }`}
               >
@@ -369,21 +376,22 @@ export default function MaintenancePage() {
                   </div>
                 )}
 
-                <div>
-                  <div className="mb-6">
-                    <span className="font-mono text-xs text-electric-gold uppercase tracking-widest block mb-2">
-                      TIER // {plan.name.toUpperCase()}
-                    </span>
-                    <h3 className="font-sans font-black text-2xl sm:text-3xl text-pure-white mb-2">
-                      {plan.name}
-                    </h3>
-                    <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                      {plan.description}
-                    </p>
-                  </div>
+                {/* 1. Header Block: Title & Description */}
+                <div className="min-h-[135px] flex flex-col justify-start mb-6">
+                  <span className="font-mono text-xs text-electric-gold uppercase tracking-widest block mb-2">
+                    TIER // {plan.name.toUpperCase()}
+                  </span>
+                  <h3 className="font-sans font-black text-2xl sm:text-3xl text-pure-white mb-2">
+                    {plan.name}
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                    {plan.description}
+                  </p>
+                </div>
 
-                  {/* Price */}
-                  <div className="pb-6 mb-6 border-b border-surface-stroke flex items-baseline gap-1.5">
+                {/* 2. Price Block: Exact same row height and baseline */}
+                <div className="h-[76px] pb-6 mb-6 border-b border-surface-stroke flex items-baseline justify-between">
+                  <div className="flex items-baseline gap-1.5">
                     <span className="font-sans font-black text-4xl sm:text-5xl text-pure-white tracking-tight">
                       {plan.price}
                     </span>
@@ -391,37 +399,55 @@ export default function MaintenancePage() {
                       {plan.period}
                     </span>
                   </div>
+                  {/* <span className="font-mono text-[10px] text-electric-gold border border-electric-gold/30 bg-electric-gold/10 px-2 py-0.5 rounded tracking-wider uppercase font-semibold">
+                    Text for Rate
+                  </span> */}
+                </div>
 
-                  {/* Included Work Highlight */}
-                  <div className="mb-6 p-3 rounded bg-surface-container/60 border border-surface-stroke text-xs font-mono text-electric-gold">
-                    {plan.hours}
+                {/* 3. Client Value Highlight: Meaningful client-centric focus */}
+                <div className="min-h-[76px] mb-6 p-3.5 rounded-lg bg-surface-container/70 border border-surface-stroke flex items-center gap-3">
+                  <div className="w-9 h-9 rounded bg-electric-gold/10 border border-electric-gold/30 flex items-center justify-center shrink-0 text-electric-gold">
+                    <IconComp className="w-4 h-4" />
                   </div>
-
-                  {/* Feature Checklist */}
-                  <div className="space-y-3 mb-8">
-                    <span className="font-mono text-[11px] text-pure-white uppercase tracking-wider block font-bold">
-                      INCLUDED IN PLAN:
-                    </span>
-                    <ul className="space-y-2.5">
-                      {plan.features.map((feat, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs text-on-surface font-sans">
-                          <Check className="w-3.5 h-3.5 text-electric-gold shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Best For */}
-                  <div className="mb-8 p-3 rounded bg-surface-container-lowest border border-surface-stroke/60 text-xs text-on-surface-variant">
-                    <strong className="text-pure-white block mb-0.5 font-mono text-[10px] uppercase">Best For:</strong>
-                    {plan.bestFor}
+                  <div className="min-w-0">
+                    <div className="font-mono text-[10px] text-electric-gold font-bold tracking-wider uppercase flex items-center gap-1.5">
+                      <span>{plan.highlightTag}</span>
+                      <span className="text-on-surface-variant/40">•</span>
+                      <span className="text-on-surface-variant text-[9px]">{plan.turnaround}</span>
+                    </div>
+                    <div className="font-sans text-xs text-pure-white font-medium mt-0.5 leading-snug">
+                      {plan.highlightText}
+                    </div>
                   </div>
                 </div>
 
+                {/* 4. Feature Checklist: Balanced heights */}
+                <div className="flex-1 flex flex-col justify-start mb-6">
+                  <span className="font-mono text-[11px] text-pure-white uppercase tracking-wider block font-bold mb-3">
+                    INCLUDED IN PLAN:
+                  </span>
+                  <ul className="space-y-2.5">
+                    {plan.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-on-surface font-sans min-h-[30px]">
+                        <Check className="w-3.5 h-3.5 text-electric-gold shrink-0 mt-0.5" />
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 5. Best For Block: Exact same height and aligned position */}
+                <div className="min-h-[76px] mb-8 p-3.5 rounded-lg bg-surface-container-lowest border border-surface-stroke/60 text-xs text-on-surface-variant flex flex-col justify-center">
+                  <strong className="text-pure-white block mb-0.5 font-mono text-[10px] uppercase">
+                    Best For:
+                  </strong>
+                  <span className="leading-relaxed">{plan.bestFor}</span>
+                </div>
+
+                {/* 6. CTA Button: Pinned to bottom */}
                 <Link
                   to={plan.ctaLink}
-                  className={`w-full py-3.5 px-4 rounded font-sans text-xs font-black uppercase tracking-wider text-center transition-all duration-300 flex items-center justify-center gap-2 group ${
+                  className={`mt-auto w-full py-3.5 px-4 rounded font-sans text-xs font-black uppercase tracking-wider text-center transition-all duration-300 flex items-center justify-center gap-2 group ${
                     plan.isRecommended
                       ? 'bg-electric-gold text-black hover:bg-white shadow-[0_0_20px_rgba(250,204,21,0.25)]'
                       : 'bg-surface-container text-pure-white border border-surface-stroke hover:border-electric-gold hover:text-electric-gold'
